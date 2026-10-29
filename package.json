@@ -1,0 +1,43 @@
+{
+  "name": "dsh-constitution",
+  "version": "2.1.0",
+  "description": "Standing Rules: edit your standing rules in the settings page. A markdown file under DSH_HOME is rendered as a system-prompt section, so it survives compaction and takes effect on the next step without a restart. Section placement is yours to set via `order`.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./lib/constitution.js": "./lib/constitution.js",
+    "./locale/en.json": "./locale/en.json",
+    "./locale/zh.json": "./locale/zh.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/*.js",
+    "assets/*.md",
+    "locale/*.json",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "system-prompt",
+    "persona",
+    "standing-rules"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+# dsh-constitution 的 bundle patch —— 把插件挂进 profile 组合。
+#
+# 2026-10-27：从「profile 的 cordis.patch.yml 里 insert 一行」改成自建 bundle。
+# 原因：设置页的插件列表只列 bundle（判据是包内 cordis.patch.yml + package.json
+# 里的 dsh.bundle.patch），挂在 insert 行上的裸模块永远不生成卡片。
+#
+# 2026-10-29（v2）：本包多了浏览器半（package.json 的 dsh.client + -> lib/client.js），
+# 于是设置页里出现「常驻规则 / Standing Rules」这一页。因此：
+#   · 包必须能在 node_modules 里按**包名**解析（软链或 npm 安装），
+#     client-modules 靠包名生成浏览器 bundle 的 id。
+#   · 首次装/升级后要**重启一次宿主**：包元数据（含 dsh.client 声明）按 Loader
+#     specifier 缓存至重启；之后改 client.js 内容走 HMR。
+#
+# 这里不写 config：插件自身回落到 <DSH_HOME>/constitution.md（见 lib/constitution.js）。
+# 路径覆盖留给 profile 层的 `- id: dsh-constitution`，改路径不必碰本包。
+# 「id:」那一行不要写行尾注释（商城预检用正则抓该行的值）。
+- insert:
+    - id: dsh-constitution
+      name: 'dsh-constitution'

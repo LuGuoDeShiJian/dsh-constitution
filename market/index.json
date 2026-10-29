@@ -1,0 +1,44 @@
+{
+  "format": 1,
+  "title": { "en": "Local DSH plugins", "zh": "本地 DSH 插件" },
+  "description": {
+    "en": "A market index served from a static host. Point the plugin market at this file's URL.",
+    "zh": "静态托管的插件市场索引。把插件市场的索引地址指向这份文件的 URL 即可。"
+  },
+  "metadata": {
+    "categories": {
+      "prompt": { "title": { "en": "Prompt", "zh": "提示词" } }
+    },
+    "labels": {
+      "prompt": { "title": { "en": "Prompt", "zh": "提示词" } },
+      "hot": { "title": { "en": "Hot", "zh": "热门" } }
+    },
+    "sortKeys": {
+      "stars": { "title": { "en": "Stars", "zh": "星标" }, "order": "desc" }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-constitution",
+      "title": { "en": "Standing Rules", "zh": "常驻规则" },
+      "description": {
+        "en": "Edit your standing rules in the settings page; they are rendered as a system-prompt section and take effect on the next step. Placement is configurable via order.",
+        "zh": "在设置页直接编辑常驻规则，渲染成系统提示词的一段；保存后下一个 step 生效，长对话压缩也不会丢。段落位置可用 order 自行配置。"
+      },
+      "metadata": {
+        "category": "prompt",
+        "keywords": ["system-prompt", "persona", "standing-rules", "dsh-plugin"],
+        "labels": ["prompt"],
+        "sortKeys": { "stars": 0 }
+      },
+      "versions": [
+        {
+          "version": "2.1.0",
+          "publishTimestamp": 1793280000,
+          "source": { "type": "npm" },
+          "engines": { "dsh": ">=0.2.0" }
+        }
+      ]
+    }
+  ]
+}
